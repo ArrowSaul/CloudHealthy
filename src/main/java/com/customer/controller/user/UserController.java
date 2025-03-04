@@ -24,12 +24,12 @@ import java.util.Map;
 @Slf4j
 @Api(tags = "C端用户相关接口")
 public class UserController {
-    //微信登录
+
     @Autowired
     private UserService userService;
     @Autowired
     private JwtProperties jwtProperties;
-
+    //微信登录
     @PostMapping("/login")
     @ApiOperation("微信登录")
     public Result<UserLoginVO> login(@RequestBody UserLoginDTO userLoginDTO) {
@@ -65,22 +65,6 @@ public class UserController {
     public Result<String> update(@RequestBody UserUpdateDTO userUpdateDTO) {
         log.info("更新用户信息:{}",userUpdateDTO);
         userService.update(userUpdateDTO);
-        return Result.success();
-    }
-    //判断用户是否注册
-    @GetMapping("/register/{id}")
-    @ApiOperation("根据id查询姓名是否存在,判断用户是否注册")
-    public Result<String> info(@PathVariable Long id) {
-        log.info("根据id查询姓名是否存在,判断用户是否注册:{}",id);
-       String name = userService.getById(id);
-        return Result.success(name);
-    }
-    //接收注册信息
-    @PutMapping("/register")
-    @ApiOperation("接收注册信息")
-    public Result<String> register(@RequestBody UserRegisterDTO userRegisterDTO) {
-        log.info("接收注册信息:{}",userRegisterDTO);
-        userService.update(userRegisterDTO);
         return Result.success();
     }
 }
