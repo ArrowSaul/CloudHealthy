@@ -28,7 +28,7 @@ public class PatientServiceImpl implements PatientService {
         // 从JWT中获取用户ID
         Long userId = BaseContext.getCurrentId();
         // 1. 处理默认就诊人
-        if (patientAddDTO.getIsDefault()) {
+        if (patientAddDTO.getIsDefault() == 1) {
             // 取消原有默认就诊人
             patientMapper.cancelPreviousDefault(userId);
         }
@@ -36,7 +36,7 @@ public class PatientServiceImpl implements PatientService {
         Patient patient = new Patient();
         BeanUtils.copyProperties(patientAddDTO, patient);
         patient.setUserId(userId);
-        patient.setIsDefault(patientAddDTO.getIsDefault() ? 1 : 0);
+        patient.setIsDefault(patientAddDTO.getIsDefault());
         patientMapper.insert(patient);
     }
 }
