@@ -25,7 +25,6 @@ import java.util.Map;
 @Service
 @Slf4j
 public class UserServiceImpl implements UserService {
-    public static final String WX_LOGIN = "https://api.weixin.qq.com/sns/jscode2session";
     @Autowired
     private WeChatProperties weChatProperties;
     @Autowired
@@ -47,18 +46,6 @@ public class UserServiceImpl implements UserService {
         }
         return user;
     }
-
-//    public String getOpenid(String code) {
-//        Map<String, String> map = new HashMap<>();
-//        map.put("appid", weChatProperties.getAppid());
-//        map.put("secret", weChatProperties.getSecret());
-//        map.put("js_code", code);
-//        map.put("grant_type", "authorization_code");
-//        String json = HttpClientUtil.doGet(WX_LOGIN, map);
-//        JSONObject jsonObject = JSON.parseObject(json);
-//        String openid = jsonObject.getString("openid");
-//        return openid;
-//    }
         public String getOpenid(String code) {
             try {
                 // 微信小程序登录凭证校验接口URL
