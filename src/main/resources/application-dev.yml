@@ -1,0 +1,24 @@
+# mysql配置
+customer:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: sh-cynosdbmysql-grp-bo1l5ri4.sql.tencentcdb.com
+    port: 29725
+    database: springboot_demo
+# 配置自己的本机数据库用户名和密码
+    username: root
+    password: Yuneyang2025
+#  redis:
+#    host: 10.15.107.211
+#    port: 6379
+#    password: 123456
+#    database: 10
+# 配置自己的阿里云OSS
+  alioss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    access-key-id: LTAI5tDGrULGdBBeUK9nAvSm
+    access-key-secret: su3JIAi83LdgyhuqwGcsmJ76KXGzzN
+    bucket-name: sky-itcast-shuo
+  wechat:
+    appid: wxeb3edbf9128198ac
+    secret: 731e98a62f774addcd9766a8d1afcd19
