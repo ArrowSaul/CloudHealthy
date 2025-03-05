@@ -9,20 +9,24 @@ import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface UserMapper {
+    /**
+     * 根据openid查询用户
+     * @param openid
+     * @return
+     */
     @Select("select * from user where openid=#{openid}")
     User getByOpenid(String openid);
 
-    // 在 UserMapper 接口中
-    @Insert("INSERT INTO user (openid, avatar, create_time) VALUES (#{openid}, #{avatar}, #{nickName}, #{createTime})")
+    /**
+     * 新增用户
+     * @param user
+     */
+    @Insert("INSERT INTO user (openid, role, create_time) VALUES (#{openid}, #{role}, #{createTime})")
     void insert(User user);
-
-    @Select("select * from user where id=#{id}")
-    User getInfo(Long id);
-
-    @Select("select * from user where id=#{userId}")
-    User getById(Long userId);
-
-    @Update("update user set name=#{name},sex=#{sex},phone=#{phone},id_number=#{idNumber} where id=#{id}")
-    void update(UserUpdateDTO userUpdateDTO);
-
+    /**
+     * 修改用户信息
+     *
+     * @param user
+     */
+    void update(User user);
 }

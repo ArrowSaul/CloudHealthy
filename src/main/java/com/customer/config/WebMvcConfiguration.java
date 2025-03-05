@@ -41,7 +41,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         log.info("开始注册自定义拦截器...");
         registry.addInterceptor(jwtTokenAdminInterceptor)
                 .addPathPatterns("")
-                .excludePathPatterns("/admin/user/login", "/admin/user/register", "/**/");
+                .excludePathPatterns("/admin/user/login", "/admin/user/register", "/user/user/login", "/**/");
     }
 
     /**
@@ -53,14 +53,14 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     public Docket docket() {
         log.info("准备生成接口文档...");
         ApiInfo apiInfo = new ApiInfoBuilder()
-                .title("考勤项目接口文档")
+                .title("客服项目接口文档")
                 .version("1.0")
-                .description("考勤项目接口文档")
+                .description("客服项目接口文档")
                 .build();
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.attend.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.customer.controller"))
                 .paths(PathSelectors.any())
                 .build();
         return docket;

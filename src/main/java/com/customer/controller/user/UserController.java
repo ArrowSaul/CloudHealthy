@@ -1,11 +1,14 @@
 package com.customer.controller.user;
 
+import com.customer.dto.UserLoginDTO;
+import com.customer.dto.UserUpdateDTO;
 import com.customer.result.Result;
 import com.customer.service.UserService;
 import com.customer.constant.JwtClaimsConstant;
 import com.customer.entity.User;
 import com.customer.properties.JwtProperties;
 import com.customer.utils.JwtUtil;
+import com.customer.vo.UserLoginVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +28,12 @@ public class UserController {
     private UserService userService;
     @Autowired
     private JwtProperties jwtProperties;
-    //微信登录
+
+    /**
+     * 微信登录
+     * @param userLoginDTO
+     * @return
+     */
     @PostMapping("/login")
     @ApiOperation("微信登录")
     public Result<UserLoginVO> login(@RequestBody UserLoginDTO userLoginDTO) {
@@ -39,28 +47,21 @@ public class UserController {
                 .openid(user.getOpenid())
                 .token(token)
                 .build();
-        log.info("返回:{}",userLoginVO);
         return Result.success(userLoginVO);
     }
-    @PostMapping("/logout")
-    @ApiOperation("退出登录")
-    public Result<String> logout() {
-        return Result.success();
-    }
-    //获取用户信息
-    @GetMapping("/{id}")
-    @ApiOperation("获取用户信息")
-    public Result<User> info(@PathVariable long id) {
-        log.info("获取用户信息:{}",id);
-        User user = userService.info(id);
-        return Result.success(user);
-    }
-    //更新用户信息
-    @PutMapping("/update")
-    @ApiOperation("更新用户信息")
-    public Result<String> update(@RequestBody UserUpdateDTO userUpdateDTO) {
-        log.info("更新用户信息:{}",userUpdateDTO);
+
+    /**
+     * 修改用户信息
+     * @param userUpdateDTO
+     * @return
+     */
+    @PutMapping
+    @ApiOperation("修改用户信息")
+    public Result update(@RequestBody UserUpdateDTO userUpdateDTO){
+        log.info("修改用户信息：{}",userUpdateDTO);
         userService.update(userUpdateDTO);
         return Result.success();
     }
+
+
 }
