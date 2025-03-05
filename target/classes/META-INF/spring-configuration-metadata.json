@@ -1,7 +1,7 @@
 {
   "groups": [
     {
-      "name": "attend.jwt",
+      "name": "customer.jwt",
       "type": "com.customer.properties.JwtProperties",
       "sourceType": "com.customer.properties.JwtProperties"
     },
@@ -18,38 +18,36 @@
   ],
   "properties": [
     {
-      "name": "attend.jwt.admin-secret-key",
+      "name": "customer.jwt.admin-secret-key",
       "type": "java.lang.String",
       "description": "管理端员工生成jwt令牌相关配置",
       "sourceType": "com.customer.properties.JwtProperties"
     },
     {
-      "name": "attend.jwt.admin-token-name",
+      "name": "customer.jwt.admin-token-name",
       "type": "java.lang.String",
       "sourceType": "com.customer.properties.JwtProperties"
     },
     {
-      "name": "attend.jwt.admin-ttl",
+      "name": "customer.jwt.admin-ttl",
       "type": "java.lang.Long",
-      "sourceType": "com.customer.properties.JwtProperties",
-      "defaultValue": 0
+      "sourceType": "com.customer.properties.JwtProperties"
     },
     {
-      "name": "attend.jwt.user-secret-key",
+      "name": "customer.jwt.user-secret-key",
       "type": "java.lang.String",
       "description": "用户端微信用户生成jwt令牌相关配置",
       "sourceType": "com.customer.properties.JwtProperties"
     },
     {
-      "name": "attend.jwt.user-token-name",
+      "name": "customer.jwt.user-token-name",
       "type": "java.lang.String",
       "sourceType": "com.customer.properties.JwtProperties"
     },
     {
-      "name": "attend.jwt.user-ttl",
+      "name": "customer.jwt.user-ttl",
       "type": "java.lang.Long",
-      "sourceType": "com.customer.properties.JwtProperties",
-      "defaultValue": 0
+      "sourceType": "com.customer.properties.JwtProperties"
     },
     {
       "name": "customer.wechat.api-v3-key",
