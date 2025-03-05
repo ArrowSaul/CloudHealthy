@@ -6,14 +6,14 @@
       "sourceType": "com.customer.properties.JwtProperties"
     },
     {
+      "name": "customer.wechat",
+      "type": "com.customer.properties.WeChatProperties",
+      "sourceType": "com.customer.properties.WeChatProperties"
+    },
+    {
       "name": "energy.alioss",
       "type": "com.customer.properties.AliOssProperties",
       "sourceType": "com.customer.properties.AliOssProperties"
-    },
-    {
-      "name": "sky.wechat",
-      "type": "com.customer.properties.WeChatProperties",
-      "sourceType": "com.customer.properties.WeChatProperties"
     }
   ],
   "properties": [
@@ -52,6 +52,51 @@
       "defaultValue": 0
     },
     {
+      "name": "customer.wechat.api-v3-key",
+      "type": "java.lang.String",
+      "sourceType": "com.customer.properties.WeChatProperties"
+    },
+    {
+      "name": "customer.wechat.appid",
+      "type": "java.lang.String",
+      "sourceType": "com.customer.properties.WeChatProperties"
+    },
+    {
+      "name": "customer.wechat.mch-serial-no",
+      "type": "java.lang.String",
+      "sourceType": "com.customer.properties.WeChatProperties"
+    },
+    {
+      "name": "customer.wechat.mchid",
+      "type": "java.lang.String",
+      "sourceType": "com.customer.properties.WeChatProperties"
+    },
+    {
+      "name": "customer.wechat.notify-url",
+      "type": "java.lang.String",
+      "sourceType": "com.customer.properties.WeChatProperties"
+    },
+    {
+      "name": "customer.wechat.private-key-file-path",
+      "type": "java.lang.String",
+      "sourceType": "com.customer.properties.WeChatProperties"
+    },
+    {
+      "name": "customer.wechat.refund-notify-url",
+      "type": "java.lang.String",
+      "sourceType": "com.customer.properties.WeChatProperties"
+    },
+    {
+      "name": "customer.wechat.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.customer.properties.WeChatProperties"
+    },
+    {
+      "name": "customer.wechat.we-chat-pay-cert-file-path",
+      "type": "java.lang.String",
+      "sourceType": "com.customer.properties.WeChatProperties"
+    },
+    {
       "name": "energy.alioss.access-key-id",
       "type": "java.lang.String",
       "sourceType": "com.customer.properties.AliOssProperties"
@@ -70,51 +115,6 @@
       "name": "energy.alioss.endpoint",
       "type": "java.lang.String",
       "sourceType": "com.customer.properties.AliOssProperties"
-    },
-    {
-      "name": "sky.wechat.api-v3-key",
-      "type": "java.lang.String",
-      "sourceType": "com.customer.properties.WeChatProperties"
-    },
-    {
-      "name": "sky.wechat.appid",
-      "type": "java.lang.String",
-      "sourceType": "com.customer.properties.WeChatProperties"
-    },
-    {
-      "name": "sky.wechat.mch-serial-no",
-      "type": "java.lang.String",
-      "sourceType": "com.customer.properties.WeChatProperties"
-    },
-    {
-      "name": "sky.wechat.mchid",
-      "type": "java.lang.String",
-      "sourceType": "com.customer.properties.WeChatProperties"
-    },
-    {
-      "name": "sky.wechat.notify-url",
-      "type": "java.lang.String",
-      "sourceType": "com.customer.properties.WeChatProperties"
-    },
-    {
-      "name": "sky.wechat.private-key-file-path",
-      "type": "java.lang.String",
-      "sourceType": "com.customer.properties.WeChatProperties"
-    },
-    {
-      "name": "sky.wechat.refund-notify-url",
-      "type": "java.lang.String",
-      "sourceType": "com.customer.properties.WeChatProperties"
-    },
-    {
-      "name": "sky.wechat.secret",
-      "type": "java.lang.String",
-      "sourceType": "com.customer.properties.WeChatProperties"
-    },
-    {
-      "name": "sky.wechat.we-chat-pay-cert-file-path",
-      "type": "java.lang.String",
-      "sourceType": "com.customer.properties.WeChatProperties"
     }
   ],
   "hints": []

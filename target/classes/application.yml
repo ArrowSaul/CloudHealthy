@@ -54,10 +54,10 @@ customer:
     user-ttl: 7200000
     user-token-name: authentication
   alioss:
-    endpoint: ${attend.alioss.endpoint}
-    access-key-id: ${attend.alioss.access-key-id}
-    access-key-secret: ${attend.alioss.access-key-secret}
-    bucket-name: ${attend.alioss.bucket-name}
+    endpoint: ${customer.alioss.endpoint}
+    access-key-id: ${customer.alioss.access-key-id}
+    access-key-secret: ${customer.alioss.access-key-secret}
+    bucket-name: ${customer.alioss.bucket-name}
   wechat:
-    appid: ${attend.wechat.appid}
-    secret: ${attend.wechat.secret}
+    appid: ${customer.wechat.appid}
+    secret: ${customer.wechat.secret}
