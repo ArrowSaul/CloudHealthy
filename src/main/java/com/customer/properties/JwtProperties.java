@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "attend.jwt")
+@ConfigurationProperties(prefix = "customer.jwt")
 @Data
 public class JwtProperties {
 

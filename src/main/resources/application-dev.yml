@@ -21,4 +21,4 @@ customer:
     bucket-name: sky-itcast-shuo
   wechat:
     appid: wxeb3edbf9128198ac
-    secret: 731e98a62f774addcd9766a8d1afcd19
+    secret: 731e98a62f774addcd9766a8d1afcd192
