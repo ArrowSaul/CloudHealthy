@@ -29,20 +29,20 @@ import java.util.List;
 @Slf4j
 public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 
-//    @Autowired
-//    private JwtTokenAdminInterceptor jwtTokenAdminInterceptor;
-//
-//    /**
-//     * 注册自定义拦截器
-//     *
-//     * @param registry
-//     */
-//    protected void addInterceptors(InterceptorRegistry registry) {
-//        log.info("开始注册自定义拦截器...");
-//        registry.addInterceptor(jwtTokenAdminInterceptor)
-//                .addPathPatterns("")
-//                .excludePathPatterns("/admin/user/login", "/admin/user/register", "/user/user/login", "/**/");
-//    }
+    @Autowired
+    private JwtTokenAdminInterceptor jwtTokenAdminInterceptor;
+
+    /**
+     * 注册自定义拦截器
+     *
+     * @param registry
+     */
+    protected void addInterceptors(InterceptorRegistry registry) {
+        log.info("开始注册自定义拦截器...");
+        registry.addInterceptor(jwtTokenAdminInterceptor)
+                .addPathPatterns("")
+                .excludePathPatterns("/admin/user/login", "/admin/user/register", "/user/user/login", "/**/");
+    }
 
     /**
      * 通过knife4j生成接口文档
