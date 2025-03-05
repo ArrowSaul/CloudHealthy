@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="springboot_demo@sh-cynosdbmysql-grp-bo1l5ri4.sql.tencentcdb.com" uuid="6fec31bb-dec1-437f-b137-287515cfbf7b">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://sh-cynosdbmysql-grp-bo1l5ri4.sql.tencentcdb.com:29725/springboot_demo</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>
