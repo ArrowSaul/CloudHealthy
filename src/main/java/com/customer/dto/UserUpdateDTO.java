@@ -7,7 +7,6 @@ import javax.validation.constraints.Pattern;
 
 @Data
 public class UserUpdateDTO {
-    private Long id;
     // 用户昵称，确保不为空
     @NotBlank(message = "昵称不能为空")
     private String nickname;

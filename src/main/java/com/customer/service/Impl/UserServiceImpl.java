@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import com.customer.constant.MessageConstant;
 import com.customer.constant.RoleConstant;
+import com.customer.context.BaseContext;
 import com.customer.dto.UserLoginDTO;
 import com.customer.dto.UserUpdateDTO;
 import com.customer.entity.User;
@@ -82,7 +83,7 @@ public class UserServiceImpl implements UserService {
      */
     public void update(UserUpdateDTO userUpdateDTO) {
         User user = User.builder()
-                .id(userUpdateDTO.getId())
+                .id(BaseContext.getCurrentId())
                 .nickname(userUpdateDTO.getNickname())
                 .avatar(userUpdateDTO.getAvatar())
                 .phone(userUpdateDTO.getPhone())

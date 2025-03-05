@@ -14,7 +14,6 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,7 +48,15 @@ public class UserController {
                 .build();
         return Result.success(userLoginVO);
     }
-
+    /**
+     * 退出登录
+     */
+    @PutMapping("/logout")
+    @ApiOperation("退出登录")
+    public Result logout(){
+        log.info("退出登录");
+        return Result.success();
+    }
     /**
      * 修改用户信息
      * @param userUpdateDTO
@@ -62,6 +69,4 @@ public class UserController {
         userService.update(userUpdateDTO);
         return Result.success();
     }
-
-
 }
