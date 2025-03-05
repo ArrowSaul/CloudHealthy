@@ -1,8 +1,6 @@
 package com.customer.mapper;
 
 
-import com.customer.dto.UserRegisterDTO;
-import com.customer.dto.UserUpdateDTO;
 import com.customer.entity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;

@@ -3,8 +3,6 @@ package com.customer.service.Impl;
 import com.alibaba.fastjson.JSONObject;
 
 import com.customer.constant.MessageConstant;
-import com.customer.dto.UserLoginDTO;
-import com.customer.dto.UserUpdateDTO;
 import com.customer.entity.User;
 import com.customer.exception.LoginFailedException;
 import com.customer.mapper.UserMapper;

@@ -1,15 +1,11 @@
 package com.customer.controller.user;
 
-import com.customer.dto.UserLoginDTO;
-import com.customer.dto.UserRegisterDTO;
 import com.customer.result.Result;
 import com.customer.service.UserService;
 import com.customer.constant.JwtClaimsConstant;
-import com.customer.dto.UserUpdateDTO;
 import com.customer.entity.User;
 import com.customer.properties.JwtProperties;
 import com.customer.utils.JwtUtil;
-import com.customer.vo.UserLoginVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

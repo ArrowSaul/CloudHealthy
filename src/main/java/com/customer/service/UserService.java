@@ -1,8 +1,6 @@
 package com.customer.service;
 
 
-import com.customer.dto.UserLoginDTO;
-import com.customer.dto.UserUpdateDTO;
 import com.customer.entity.User;
 
 public interface UserService {
