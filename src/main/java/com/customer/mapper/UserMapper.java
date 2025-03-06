@@ -21,7 +21,6 @@ public interface UserMapper {
      * 新增用户
      * @param user
      */
-    @Insert("INSERT INTO user (openid, role, create_time) VALUES (#{openid}, #{role}, #{createTime})")
     void insert(User user);
     /**
      * 修改用户信息
