@@ -6,11 +6,11 @@
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO patient (
-            user_id, name, phone, sex,
-            id_number, is_default
+            user_id, name, phone, sex, age,
+            id_number, medical_card_number, is_default, appointment_hospital, appointment_doctor, appointment_time
         ) VALUES (
-                     #{userId}, #{name}, #{phone}, #{sex},
-                     #{idNumber}, #{isDefault}
+                     #{userId}, #{name}, #{phone}, #{sex}, #{age},
+                     #{idNumber}, #{medicalCardNumber}, #{isDefault}, #{appointmentHospital}, #{appointmentDoctor}, #{appointmentTime}
                  )
     </insert>
 </mapper>

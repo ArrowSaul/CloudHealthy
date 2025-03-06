@@ -2,26 +2,39 @@ package com.customer.dto;
 
 import lombok.Data;
 import javax.validation.constraints.*;
+import java.time.LocalDateTime;
 
 @Data
 public class PatientAddDTO {
 
-    @NotBlank(message = "姓名不能为空")
+    // 姓名字段，确保不为空
     private String name;
 
-    @NotBlank(message = "手机号不能为空")
-    @Pattern(regexp = "^1[3-9]\\d{9}$", message = "手机号格式不正确")
+    // 手机号字段，确保不为空且符合中国大陆手机号格式
     private String phone;
 
-    @NotNull(message = "性别不能为空")
-    @Min(value = 0, message = "性别参数不合法")
-    @Max(value = 2, message = "性别参数不合法")
+    // 性别字段，确保不为空且在允许的范围内（0-2）
     private Integer sex;
 
-    @NotBlank(message = "身份证号不能为空")
-    @Pattern(regexp = "^\\d{17}[\\dXx]$", message = "身份证号格式不正确")
+    // 年龄字段，确保不为空
+    private Integer age;
+
+    // 身份证号字段，确保不为空且符合中国大陆身份证号格式
     private String idNumber;
 
-    @NotNull(message = "默认状态不能为空")
+    // 医保卡号字段，允许为空
+    private String medicalCardNumber;
+
+    // 默认状态字段，确保不为空
     private Integer isDefault;
+
+    // 预约医院字段，允许为空
+    private String appointmentHospital;
+
+    // 预约医生字段，允许为空
+    private String appointmentDoctor;
+
+    // 预约时间字段，允许为空
+    private LocalDateTime appointmentTime;
+
 }

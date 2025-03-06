@@ -64,6 +64,7 @@ com\customer\interceptor\JwtTokenAdminInterceptor.class
 com\customer\properties\AliOssProperties.class
 com\customer\properties\WeChatProperties.class
 com\customer\dto\UserUpdateDTO.class
+com\customer\controller\admin\CommonController.class
 com\customer\entity\Menu.class
 com\customer\entity\Chat$ChatBuilder.class
 com\customer\constant\StatusConstant.class

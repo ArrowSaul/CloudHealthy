@@ -47,6 +47,7 @@ D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\mapper\Pa
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\controller\user\PatientController.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\constant\StatusConstant.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\dto\UserUpdateDTO.java
+D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\controller\admin\CommonController.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\constant\MessageConstant.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\entity\Chat.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\mapper\MenuMapper.java
