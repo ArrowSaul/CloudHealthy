@@ -108,6 +108,7 @@ CREATE TABLE payment (
     create_time DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (order_id) REFERENCES orders(id)
 ) COMMENT '支付流水表';
+
 -- 菜单表
 CREATE TABLE menu
 (
