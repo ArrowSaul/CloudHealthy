@@ -26,6 +26,7 @@ CREATE TABLE user (
     create_time DATETIME DEFAULT CURRENT_TIMESTAMP,
     update_time DATETIME ON UPDATE CURRENT_TIMESTAMP
 ) COMMENT '用户表';
+
 -- 就诊人信息表
 CREATE TABLE patient (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -38,6 +39,7 @@ CREATE TABLE patient (
     FOREIGN KEY (user_id) REFERENCES user(id),
     UNIQUE INDEX idx_user_id_number (user_id, id_number)
 ) COMMENT '就诊人信息表';
+
 -- 客服表
 CREATE TABLE customer (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -47,6 +49,7 @@ CREATE TABLE customer (
     conversations INT DEFAULT 0 COMMENT '当前接待人数',
     FOREIGN KEY (user_id) REFERENCES user(id)
 ) COMMENT '客服信息表';
+
 -- 订单表
 CREATE TABLE orders (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -78,6 +81,7 @@ CREATE TABLE chat (
     INDEX idx_order_time (order_id, send_time)
 ) COMMENT '对话记录表';
 
+-- 评价表
 CREATE TABLE evaluations (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     user_id BIGINT NOT NULL,
@@ -104,3 +108,19 @@ CREATE TABLE payment (
     create_time DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (order_id) REFERENCES orders(id)
 ) COMMENT '支付流水表';
+-- 菜单表
+CREATE TABLE menu
+(
+    id          BIGINT AUTO_INCREMENT COMMENT '主键' PRIMARY KEY,
+    name        VARCHAR(32)   NOT NULL COMMENT '菜单名称',
+    sort        INT DEFAULT 0 NOT NULL COMMENT '顺序',
+    status      TINYINT           NULL COMMENT '状态 0:禁用，1:启用',
+    price       DECIMAL(10, 2)    NULL COMMENT '金额',
+    image       VARCHAR(255)      NULL COMMENT '图片路径',
+    create_time DATETIME      NULL COMMENT '创建时间',
+    update_time DATETIME      NULL COMMENT '更新时间',
+    create_user BIGINT        NULL COMMENT '创建人',
+    update_user BIGINT        NULL COMMENT '修改人',
+    CONSTRAINT idx_menu_name UNIQUE (name)
+)
+    COMMENT '菜单';
