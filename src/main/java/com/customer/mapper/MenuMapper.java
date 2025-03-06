@@ -3,6 +3,7 @@ package com.customer.mapper;
 
 import com.customer.entity.Menu;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 
 import java.util.List;
@@ -14,4 +15,6 @@ public interface MenuMapper {
      * @return
      */
     List<Menu> list();
+    @Select("select * from menu where id = #{id}")
+    Menu queryById(Long id);
 }
