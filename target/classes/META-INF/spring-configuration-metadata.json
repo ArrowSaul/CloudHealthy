@@ -1,6 +1,11 @@
 {
   "groups": [
     {
+      "name": "customer.alioss",
+      "type": "com.customer.properties.AliOssProperties",
+      "sourceType": "com.customer.properties.AliOssProperties"
+    },
+    {
       "name": "customer.jwt",
       "type": "com.customer.properties.JwtProperties",
       "sourceType": "com.customer.properties.JwtProperties"
@@ -9,14 +14,29 @@
       "name": "customer.wechat",
       "type": "com.customer.properties.WeChatProperties",
       "sourceType": "com.customer.properties.WeChatProperties"
-    },
-    {
-      "name": "energy.alioss",
-      "type": "com.customer.properties.AliOssProperties",
-      "sourceType": "com.customer.properties.AliOssProperties"
     }
   ],
   "properties": [
+    {
+      "name": "customer.alioss.access-key-id",
+      "type": "java.lang.String",
+      "sourceType": "com.customer.properties.AliOssProperties"
+    },
+    {
+      "name": "customer.alioss.access-key-secret",
+      "type": "java.lang.String",
+      "sourceType": "com.customer.properties.AliOssProperties"
+    },
+    {
+      "name": "customer.alioss.bucket-name",
+      "type": "java.lang.String",
+      "sourceType": "com.customer.properties.AliOssProperties"
+    },
+    {
+      "name": "customer.alioss.endpoint",
+      "type": "java.lang.String",
+      "sourceType": "com.customer.properties.AliOssProperties"
+    },
     {
       "name": "customer.jwt.admin-secret-key",
       "type": "java.lang.String",
@@ -31,7 +51,8 @@
     {
       "name": "customer.jwt.admin-ttl",
       "type": "java.lang.Long",
-      "sourceType": "com.customer.properties.JwtProperties"
+      "sourceType": "com.customer.properties.JwtProperties",
+      "defaultValue": 0
     },
     {
       "name": "customer.jwt.user-secret-key",
@@ -47,7 +68,8 @@
     {
       "name": "customer.jwt.user-ttl",
       "type": "java.lang.Long",
-      "sourceType": "com.customer.properties.JwtProperties"
+      "sourceType": "com.customer.properties.JwtProperties",
+      "defaultValue": 0
     },
     {
       "name": "customer.wechat.api-v3-key",
@@ -93,26 +115,6 @@
       "name": "customer.wechat.we-chat-pay-cert-file-path",
       "type": "java.lang.String",
       "sourceType": "com.customer.properties.WeChatProperties"
-    },
-    {
-      "name": "energy.alioss.access-key-id",
-      "type": "java.lang.String",
-      "sourceType": "com.customer.properties.AliOssProperties"
-    },
-    {
-      "name": "energy.alioss.access-key-secret",
-      "type": "java.lang.String",
-      "sourceType": "com.customer.properties.AliOssProperties"
-    },
-    {
-      "name": "energy.alioss.bucket-name",
-      "type": "java.lang.String",
-      "sourceType": "com.customer.properties.AliOssProperties"
-    },
-    {
-      "name": "energy.alioss.endpoint",
-      "type": "java.lang.String",
-      "sourceType": "com.customer.properties.AliOssProperties"
     }
   ],
   "hints": []

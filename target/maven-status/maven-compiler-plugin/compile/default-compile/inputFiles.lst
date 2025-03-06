@@ -1,3 +1,4 @@
+D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\service\Impl\MenuServiceImpl.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\utils\AliOssUtil.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\utils\HttpClientUtil.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\exception\DeletionNotAllowedException.java
@@ -16,12 +17,14 @@ D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\entity\Pa
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\entity\Admin.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\utils\JwtUtil.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\interceptor\JwtTokenUserInterceptor.java
+D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\service\MenuService.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\exception\LoginFailedException.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\config\WebMvcConfiguration.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\exception\ShoppingCartBusinessException.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\utils\VerificationCodeUtil.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\vo\UserLoginVO.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\mapper\UserMapper.java
+D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\entity\Menu.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\constant\AutoFillConstant.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\service\Impl\UserServiceImpl.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\config\OssConfiguration.java
@@ -46,6 +49,8 @@ D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\constant\
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\dto\UserUpdateDTO.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\constant\MessageConstant.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\entity\Chat.java
+D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\mapper\MenuMapper.java
+D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\controller\user\MenuController.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\interceptor\JwtTokenAdminInterceptor.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\config\RedisConfiguration.java
 D:\idea_workspace\shuo_web_project\Customer\src\main\java\com\customer\constant\JwtClaimsConstant.java
