@@ -12,4 +12,9 @@ public interface OrdersService {
      * @return
      */
     OrdersSubmitVO submitOrder(OrdersSubmitDTO ordersSubmitDTO);
+    /**
+     * 取消订单
+     * @param id
+     */
+    void cancel(Long id) throws Exception;
 }

@@ -12,4 +12,15 @@
                 #{orderTime},
                  #{amount})
     </insert>
+    <update id="update" parameterType="com.customer.entity.Orders">
+        update orders
+        <set>
+            <if test="cancelReason != null and cancelReason!='' "> cancel_reason=#{cancelReason}, </if>
+            <if test="rejectionReason != null and rejectionReason!='' "> rejection_reason=#{rejectionReason}, </if>
+            <if test="cancelTime != null"> cancel_time=#{cancelTime}, </if>
+            <if test="checkoutTime != null"> checkout_time=#{checkoutTime}, </if>
+            <if test="status != null"> status = #{status}, </if>
+        </set>
+        where id = #{id}
+    </update>
 </mapper>

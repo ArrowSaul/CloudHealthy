@@ -13,4 +13,12 @@
                      #{idNumber}, #{medicalCardNumber}, #{isDefault}, #{appointmentHospital}, #{appointmentDoctor}, #{appointmentTime}
                  )
     </insert>
+    <select id="list" resultType="com.customer.entity.Patient">
+        select * from patient
+        <where>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+        </where>
+    </select>
 </mapper>

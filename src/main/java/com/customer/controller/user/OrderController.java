@@ -30,4 +30,17 @@ public class OrderController {
         OrdersSubmitVO orderSubmitVO = ordersService.submitOrder(ordersSubmitDTO);
         return Result.success(orderSubmitVO);
     }
+    /**
+     * 取消订单
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @PutMapping("/cancel/{id}")
+    @ApiOperation("取消订单")
+    public Result cancel(@PathVariable("id") Long id)throws Exception{
+        log.info("取消订单");
+        ordersService.cancel(id);
+        return Result.success();
+    }
 }
