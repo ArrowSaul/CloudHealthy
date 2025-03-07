@@ -4,6 +4,8 @@ import com.customer.entity.Patient;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Update;
 
+import java.util.List;
+
 @Mapper
 public interface PatientMapper {
     /**
@@ -18,4 +20,10 @@ public interface PatientMapper {
      * @param patient
      */
     void insert(Patient patient);
+    /**
+     * 动态条件查询
+     * @param patient
+     * @return
+     */
+    List<Patient> list(Patient patient);
 }

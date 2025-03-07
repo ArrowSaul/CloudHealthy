@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -38,5 +39,16 @@ public class PatientServiceImpl implements PatientService {
         patient.setUserId(userId);
         patient.setIsDefault(patientAddDTO.getIsDefault());
         patientMapper.insert(patient);
+    }
+    /**
+     * 查询就诊人信息列表
+     * @return
+     */
+    public List<Patient> list() {
+//        Long userId = BaseContext.getCurrentId();
+        Long userId = 5L;
+        Patient patient = Patient.builder().userId(userId).build();
+        List<Patient> list = patientMapper.list(patient);
+        return list;
     }
 }
