@@ -48,6 +48,7 @@ public class UserController {
                 .build();
         return Result.success(userLoginVO);
     }
+
     /**
      * 退出登录
      */
@@ -57,6 +58,7 @@ public class UserController {
         log.info("退出登录");
         return Result.success();
     }
+
     /**
      * 修改用户信息
      * @param userUpdateDTO
@@ -68,5 +70,18 @@ public class UserController {
         log.info("修改用户信息：{}",userUpdateDTO);
         userService.update(userUpdateDTO);
         return Result.success();
+    }
+
+    /**
+     * 根据用户id查询用户信息
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    @ApiOperation("根据用户id查询用户信息")
+    public Result getById(@PathVariable Long id){
+        log.info("查询用户信息,{}", id);
+        User user = userService.getById(id);
+        return Result.success(user);
     }
 }

@@ -1,6 +1,7 @@
 package com.customer.service;
 
 import com.customer.dto.PatientAddDTO;
+import com.customer.dto.PatientDTO;
 import com.customer.entity.Patient;
 
 import java.util.List;
@@ -16,4 +17,15 @@ public interface PatientService {
      * @return
      */
     List<Patient> list();
+    /**
+     * 批量删除就诊人
+     * @param ids
+     */
+    void deleteBatch(List<Long> ids);
+
+    /**
+     * 编辑就诊人信息
+     * @param patientDTO
+     */
+    void update(PatientDTO patientDTO);
 }

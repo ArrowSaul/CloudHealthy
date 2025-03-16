@@ -25,16 +25,4 @@ public class PatientAddDTO {
     // 医保卡号字段，允许为空
     private String medicalCardNumber;
 
-    // 默认状态字段，确保不为空
-    private Integer isDefault;
-
-    // 预约医院字段，允许为空
-    private String appointmentHospital;
-
-    // 预约医生字段，允许为空
-    private String appointmentDoctor;
-
-    // 预约时间字段，允许为空
-    private LocalDateTime appointmentTime;
-
 }

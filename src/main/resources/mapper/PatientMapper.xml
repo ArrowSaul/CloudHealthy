@@ -21,4 +21,25 @@
             </if>
         </where>
     </select>
+    <delete id="deleteByIds">
+        delete from patient where id in
+        <foreach collection="ids" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+    </delete>
+    <update id="update" parameterType="Patient">
+        update patient
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="sex != null">sex = #{sex},</if>
+            <if test="age != null">age = #{age},</if>
+            <if test="idNumber != null">id_number = #{idNumber},</if>
+            <if test="medicalCardNumber != null">medical_card_number = #{medicalCardNumber},</if>
+            <if test="appointmentHospital != null">appointment_hospital = #{appointmentHospital},</if>
+            <if test="appointmentDoctor != null">appointment_doctor = #{appointmentDoctor},</if>
+            <if test="appointmentTime != null">appointment_time = #{appointmentTime},</if>
+        </set>
+        where id = #{id}
+    </update>
 </mapper>

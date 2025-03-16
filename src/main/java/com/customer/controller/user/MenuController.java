@@ -32,17 +32,4 @@ public class MenuController {
         List<Menu> list = menuService.list();
         return Result.success(list);
     }
-
-    /**
-     * 根据id查询菜单
-     * @param id
-     * @return
-     */
-    @GetMapping("/query/{id}")
-    @ApiOperation("根据id查询菜单")
-    public Result<Menu> list(@PathVariable Long id) {
-        log.info("查询菜单:{}", id);
-        Menu menu = menuService.queryById(id);
-        return Result.success(menu);
-    }
 }

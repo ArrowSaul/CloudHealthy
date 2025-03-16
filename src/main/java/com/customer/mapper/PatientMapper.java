@@ -26,4 +26,16 @@ public interface PatientMapper {
      * @return
      */
     List<Patient> list(Patient patient);
+
+    /**
+     * 根据就诊人id列表批量删除就诊人
+     * @param ids
+     */
+    void deleteByIds(List<Long> ids);
+
+    /**
+     * 修改就诊人信息
+     * @param patient
+     */
+    void update(Patient patient);
 }

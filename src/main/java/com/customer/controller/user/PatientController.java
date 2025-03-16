@@ -1,7 +1,7 @@
 package com.customer.controller.user;
 
-import com.customer.context.BaseContext;
 import com.customer.dto.PatientAddDTO;
+import com.customer.dto.PatientDTO;
 import com.customer.entity.Patient;
 import com.customer.result.Result;
 import com.customer.service.PatientService;
@@ -10,8 +10,6 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -43,5 +41,31 @@ public class PatientController {
         log.info("查询就诊人信息列表");
         List<Patient> list = patientService.list();
         return Result.success(list);
+    }
+
+    /**
+     * 就诊人批量删除
+     * @param ids
+     * @return
+     */
+    @DeleteMapping
+    @ApiOperation("就诊人批量删除")
+    public Result delete(@RequestParam List<Long> ids) {
+        log.info("就诊人批量删除:{}", ids);
+        patientService.deleteBatch(ids);
+        return Result.success();
+    }
+
+    /**
+     * 编辑就诊人信息
+     * @param patientDTO
+     * @return
+     */
+    @PutMapping
+    @ApiOperation("编辑就诊人信息")
+    public Result update(@RequestBody PatientDTO patientDTO){
+        log.info("编辑就诊人信息，{}",patientDTO);
+        patientService.update(patientDTO);
+        return Result.success();
     }
 }

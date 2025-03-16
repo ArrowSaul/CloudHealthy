@@ -22,3 +22,12 @@ customer:
   wechat:
     appid: wxeb3edbf9128198ac
     secret: 731e98a62f774addcd9766a8d1afcd19
+#    appid: wxefcf0e1c84a7810e
+#    secret: 67e593d7b48ad5d63d8a59a08e6a0d1e
+    mchid: 1707625139
+    mchSerialNo: 2402222766F361019D684135FD3347A1F815447C
+    privateKeyFilePath: src/main/resources/apiclient_key.pem
+    apiV3Key: Yf133804353831770766266112345678
+    weChatPayCertFilePath: src/main/resources/pub_key.pem
+    notifyUrl: https://springboot-0yj4-144101-5-1346570032.sh.run.tcloudbase.com/notify/paySuccess
+    refundNotifyUrl: https://springboot-0yj4-144101-5-1346570032.sh.run.tcloudbase.com/notify/refundSuccess

@@ -1,8 +1,13 @@
 package com.customer.service.Impl;
 
+import com.customer.constant.MessageConstant;
+import com.customer.constant.StatusConstant;
 import com.customer.context.BaseContext;
 import com.customer.dto.PatientAddDTO;
+import com.customer.dto.PatientDTO;
 import com.customer.entity.Patient;
+import com.customer.exception.DeletionNotAllowedException;
+import com.customer.mapper.OrdersMapper;
 import com.customer.mapper.PatientMapper;
 import com.customer.service.PatientService;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +29,9 @@ public class PatientServiceImpl implements PatientService {
      */
     @Autowired
     private PatientMapper patientMapper;
+
+    @Autowired
+    private OrdersMapper ordersMapper;
     @Transactional
     public void addPatient(PatientAddDTO patientAddDTO) {
         // 从JWT中获取用户ID
@@ -45,10 +53,36 @@ public class PatientServiceImpl implements PatientService {
      * @return
      */
     public List<Patient> list() {
-//        Long userId = BaseContext.getCurrentId();
-        Long userId = 5L;
+        Long userId = BaseContext.getCurrentId();
         Patient patient = Patient.builder().userId(userId).build();
         List<Patient> list = patientMapper.list(patient);
         return list;
+    }
+
+    /**
+     * 批量删除就诊人信息
+     * @param ids
+     */
+    @Transactional
+    public void deleteBatch(List<Long> ids) {
+        //判断就诊人是否能够删除--是否被订单关联
+        List<Long> ordersIds = ordersMapper.getOrdersIdsByPatientIds(ids);
+        if (ordersIds != null && ordersIds.size() > 0) {
+            //当前就诊人被套餐关联了，不能删除
+            throw new DeletionNotAllowedException(MessageConstant.DISH_BE_RELATED_BY_SETMEAL);
+        }
+        //根据就诊人id集合批量删除就诊人数据
+        patientMapper.deleteByIds(ids);
+    }
+
+    /**
+     * 编辑就诊人
+     * @param patientDTO
+     */
+    @Override
+    public void update(PatientDTO patientDTO) {
+        Patient patient= new Patient();
+        BeanUtils.copyProperties(patientDTO,patient);
+        patientMapper.update(patient);
     }
 }

@@ -33,6 +33,7 @@ public class Orders implements Serializable {
     private String number; // 订单编号
 
     private Integer status; // 订单状态：1待付款 2待接单 3已接单 4服务中 5已完成 6已取消
+
     private Long userId; // 用户ID
 
     private Long patientId; // 患者ID

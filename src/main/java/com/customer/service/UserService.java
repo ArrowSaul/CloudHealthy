@@ -10,4 +10,6 @@ public interface UserService {
     User login(UserLoginDTO userLoginDTO);
     //修改用户信息
     void update(UserUpdateDTO userUpdateDTO);
+    //根据用户id查询用户信息
+    User getById(Long id);
 }
