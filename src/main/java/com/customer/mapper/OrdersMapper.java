@@ -4,6 +4,7 @@ import com.customer.dto.OrdersPageQueryDTO;
 import com.customer.entity.Orders;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -43,5 +44,5 @@ public interface OrdersMapper {
      * @param patientIds
      * @return
      */
-    List<Long> getOrdersIdsByPatientIds(List<Long> patientIds);
+    List<Long> getOrdersIdsByPatientIds(@Param("patientIds") List<Long> patientIds);
 }

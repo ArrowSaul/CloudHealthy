@@ -2,6 +2,7 @@ package com.customer.mapper;
 
 import com.customer.entity.Patient;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
@@ -31,7 +32,7 @@ public interface PatientMapper {
      * 根据就诊人id列表批量删除就诊人
      * @param ids
      */
-    void deleteByIds(List<Long> ids);
+    void deleteByIds(@Param("ids") List<Long> ids);
 
     /**
      * 修改就诊人信息
