@@ -79,4 +79,14 @@ public class PatientServiceImpl implements PatientService {
         BeanUtils.copyProperties(patientDTO,patient);
         patientMapper.update(patient);
     }
+
+    /**
+     * 根据id查询就诊人信息
+     * @param id
+     * @return
+     */
+    public Patient getPatient(Long id) {
+        Patient patient = patientMapper.getById(id);
+        return patient;
+    }
 }

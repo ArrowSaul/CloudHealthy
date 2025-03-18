@@ -3,6 +3,7 @@ package com.customer.mapper;
 import com.customer.entity.Patient;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
@@ -39,4 +40,11 @@ public interface PatientMapper {
      * @param patient
      */
     void update(Patient patient);
+    /**
+     * 根据id查询就诊人信息
+     * @param id
+     * @return
+     */
+    @Select("select * from patient where id = #{id}")
+    Patient getById(Long id);
 }

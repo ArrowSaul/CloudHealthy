@@ -68,4 +68,16 @@ public class PatientController {
         patientService.update(patientDTO);
         return Result.success();
     }
+    /**
+     * 根据id查询就诊人信息
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    @ApiOperation("根据id查询就诊人信息")
+    public Result getPatient(@PathVariable Long id){
+        log.info("查询就诊人信息，{}",id);
+        Patient patient = patientService.getPatient(id);
+        return Result.success(patient);
+    }
 }

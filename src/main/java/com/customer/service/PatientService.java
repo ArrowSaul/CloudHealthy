@@ -28,4 +28,10 @@ public interface PatientService {
      * @param patientDTO
      */
     void update(PatientDTO patientDTO);
+    /**
+     * 根据id查询就诊人信息
+     * @param id
+     * @return
+     */
+    Patient getPatient(Long id);
 }
