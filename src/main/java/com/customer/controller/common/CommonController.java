@@ -1,4 +1,4 @@
-package com.customer.controller.admin;
+package com.customer.controller.common;
 
 
 import com.customer.constant.MessageConstant;
@@ -16,9 +16,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.UUID;
 
-//通用接口
 @RestController
-@RequestMapping("/admin/common")
+@RequestMapping("/common")
 @Api(tags = "通用接口")
 @Slf4j
 public class CommonController {

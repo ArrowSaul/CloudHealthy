@@ -1,7 +1,9 @@
 package com.customer.mapper;
 
 
+import com.customer.dto.UserPageQueryDTO;
 import com.customer.entity.User;
+import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -35,4 +37,11 @@ public interface UserMapper {
      */
     @Select("select * from user where id=#{userId}")
     User getById(Long userId);
+
+    /**
+     * 分页查询用户
+     * @param userPageQueryDTO
+     * @return
+     */
+    Page<User> pageQuary(UserPageQueryDTO userPageQueryDTO);
 }

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestController("userController")
+@RestController("userUserController")
 @RequestMapping("/user/user")
 @Slf4j
 @Api(tags = "C端用户相关接口")

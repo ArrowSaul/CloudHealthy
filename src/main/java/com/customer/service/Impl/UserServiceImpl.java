@@ -7,13 +7,17 @@ import com.customer.constant.MessageConstant;
 import com.customer.constant.RoleConstant;
 import com.customer.context.BaseContext;
 import com.customer.dto.UserLoginDTO;
+import com.customer.dto.UserPageQueryDTO;
 import com.customer.dto.UserUpdateDTO;
 import com.customer.entity.User;
 import com.customer.exception.LoginFailedException;
 import com.customer.mapper.UserMapper;
 import com.customer.properties.WeChatProperties;
+import com.customer.result.PageResult;
 import com.customer.service.UserService;
 import com.customer.utils.HttpClientUtil;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +25,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -99,5 +104,19 @@ public class UserServiceImpl implements UserService {
      */
     public User getById(Long id) {
         return userMapper.getById(id);
+    }
+
+    /**
+     * 分页查询用户信息
+     * @param userPageQueryDTO
+     * @return
+     */
+    public PageResult pageQuery(UserPageQueryDTO userPageQueryDTO) {
+        log.info("用户分页查询，参数：{}", userPageQueryDTO);
+        PageHelper.startPage(userPageQueryDTO.getPage(), userPageQueryDTO.getPageSize());
+        Page<User> page = userMapper.pageQuary(userPageQueryDTO);
+        Long total = page.getTotal();
+        List<User> records = page.getResult();
+        return new PageResult(total, records);
     }
 }

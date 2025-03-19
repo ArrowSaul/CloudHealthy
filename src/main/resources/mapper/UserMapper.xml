@@ -16,4 +16,13 @@
         </set>
         where id = #{id}
     </update>
+    <select id="pageQuary" resultType="com.customer.entity.User">
+        select * from user
+        <where>
+            <if test="nickname != null and nickname != ''">
+                and nickname like concat('%',#{nickname},'%')
+            </if>
+        </where>
+        order by create_time desc
+    </select>
 </mapper>

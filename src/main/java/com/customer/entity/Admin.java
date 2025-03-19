@@ -15,10 +15,10 @@ public class Admin implements Serializable {
     // 序列化ID，用于对象序列化时的身份标识
     private static final long serialVersionUID = 1L;
 
-    // 用户ID，唯一标识一个用户
+    // 管理员ID，唯一标识一个管理员
     private Long id;
 
-    // 用户姓名
+    // 管理员姓名
     private String name;
 
     // 用户名，用于登录
@@ -33,7 +33,7 @@ public class Admin implements Serializable {
     // 头像图片路径
     private String image;
 
-    // 用户状态，1正常 0锁定
+    // 管理员状态，1正常 0锁定
     private Integer status;
 
     // 创建时间
@@ -42,9 +42,9 @@ public class Admin implements Serializable {
     // 更新时间
     private LocalDateTime updateTime;
 
-    // 创建用户的ID
+    // 创建管理员的ID
     private Long createUser;
 
-    // 更新用户的ID
+    // 更新管理员的ID
     private Long updateUser;
 }

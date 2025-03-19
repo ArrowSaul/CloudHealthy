@@ -62,7 +62,7 @@ public class PatientServiceImpl implements PatientService {
         //判断就诊人是否能够删除--是否被订单关联
         List<Long> ordersIds = ordersMapper.getOrdersIdsByPatientIds(ids);
         if (ordersIds != null && ordersIds.size() > 0) {
-            //当前就诊人被套餐关联了，不能删除
+            //当前就诊人被订单关联了，不能删除
             throw new DeletionNotAllowedException(MessageConstant.DISH_BE_RELATED_BY_SETMEAL);
         }
         //根据就诊人id集合批量删除就诊人数据
