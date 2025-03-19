@@ -47,4 +47,11 @@ public interface PatientMapper {
      */
     @Select("select * from patient where id = #{id}")
     Patient getById(Long id);
+    /**
+     * 根据id查询就诊人姓名
+     * @param patientId
+     * @return
+     */
+    @Select("select name from patient where id = #{patientId}")
+    String getpatientNameById(Long patientId);
 }

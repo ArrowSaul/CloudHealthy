@@ -10,9 +10,11 @@ import com.customer.dto.OrdersPaymentDTO;
 import com.customer.dto.OrdersSubmitDTO;
 import com.customer.entity.Orders;
 
+import com.customer.entity.Patient;
 import com.customer.entity.User;
 import com.customer.exception.OrderBusinessException;
 import com.customer.mapper.OrdersMapper;
+import com.customer.mapper.PatientMapper;
 import com.customer.mapper.UserMapper;
 import com.customer.result.PageResult;
 import com.customer.service.OrdersService;
@@ -43,6 +45,8 @@ public class OrdersServiceImpl implements OrdersService {
     private OrdersMapper ordersMapper;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private PatientMapper patientMapper;
     @Autowired
     private WeChatPayUtil weChatPayUtil;
     @Autowired
@@ -187,6 +191,7 @@ public class OrdersServiceImpl implements OrdersService {
 
         OrdersPageQueryDTO ordersPageQueryDTO = new OrdersPageQueryDTO();
         ordersPageQueryDTO.setUserId(BaseContext.getCurrentId());
+//        ordersPageQueryDTO.setUserId(6L);
         ordersPageQueryDTO.setStatus(status);
 
         // 分页条件查询
@@ -199,6 +204,9 @@ public class OrdersServiceImpl implements OrdersService {
             for (Orders orders : page) {
                 OrdersVO ordersVO = new OrdersVO();
                 BeanUtils.copyProperties(orders, ordersVO);
+                // 根据patientId查询patientName
+                String patientName = patientMapper.getpatientNameById(orders.getPatientId());
+                ordersVO.setPatientName(patientName);
                 list.add(ordersVO);
             }
         }

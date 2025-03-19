@@ -34,8 +34,8 @@ public class OrdersVO {
     //下单用户id
     private Long userId;
 
-    // 患者ID
-    private Long patientId;
+    // 患者姓名
+    private String patientName;
 
     //下单时间
     private LocalDateTime orderTime;
