@@ -125,3 +125,16 @@ CREATE TABLE menu
     CONSTRAINT idx_menu_name UNIQUE (name)
 )
     COMMENT '菜单';
+CREATE TABLE consultations (
+    id bigint AUTO_INCREMENT PRIMARY KEY COMMENT '咨询主键',
+    patient_id bigint NOT NULL COMMENT '就诊人ID',
+    is_surgery tinyint default 0 COMMENT '是否手术（0是 1否）',
+    has_fever tinyint default 0 COMMENT '是否发烧（0是 1否）',
+    disease_type VARCHAR(64) COMMENT '疾病类型',
+    symptoms VARCHAR(150) NOT NULL COMMENT '症状描述',
+    image VARCHAR(255) COMMENT '图片路径',
+    create_time DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+
+    FOREIGN KEY (patient_id) REFERENCES patient (id)
+)
+    comment '咨询记录表';

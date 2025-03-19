@@ -23,17 +23,4 @@ public class MenuServiceImpl implements MenuService {
     public List<Menu> list( ) {
         return menuMapper.list();
     }
-
-    /**
-     * 根据id查询菜单
-     * @param id
-     * @return
-     */
-    public Menu queryById(Long id) {
-        log.info("查询菜单:{}", id);
-        if (id != null) {
-            return menuMapper.queryById(id);
-        }
-        return null;
-    }
 }

@@ -15,6 +15,4 @@ public interface MenuMapper {
      * @return
      */
     List<Menu> list();
-    @Select("select * from menu where id = #{id}")
-    Menu queryById(Long id);
 }

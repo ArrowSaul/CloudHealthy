@@ -11,10 +11,4 @@ public interface MenuService {
      * @return
      */
     List<Menu> list();
-    /**
-     * 根据id查询菜单
-     * @param id
-     * @return
-     */
-    Menu queryById(Long id);
 }
