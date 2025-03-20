@@ -13,6 +13,7 @@ import com.customer.entity.Orders;
 import com.customer.entity.Patient;
 import com.customer.entity.User;
 import com.customer.exception.OrderBusinessException;
+import com.customer.mapper.MenuMapper;
 import com.customer.mapper.OrdersMapper;
 import com.customer.mapper.PatientMapper;
 import com.customer.mapper.UserMapper;
@@ -48,6 +49,8 @@ public class OrdersServiceImpl implements OrdersService {
     @Autowired
     private PatientMapper patientMapper;
     @Autowired
+    private MenuMapper menuMapper;
+    @Autowired
     private WeChatPayUtil weChatPayUtil;
     @Autowired
     private WebSocketServer webSocketServer;
@@ -61,9 +64,11 @@ public class OrdersServiceImpl implements OrdersService {
     public OrdersSubmitVO submitOrder(OrdersSubmitDTO ordersSubmitDTO) {
         log.info("用户下单：{}",ordersSubmitDTO);
         Long userId = BaseContext.getCurrentId();
+        BigDecimal aomunt =  menuMapper.getAmountByIds(ordersSubmitDTO.getMenuId());
         //2. 向订单表插入一条数据
         Orders orders = new Orders();
         BeanUtils.copyProperties(ordersSubmitDTO,orders);
+        orders.setAmount(aomunt);
         orders.setOrderTime(LocalDateTime.now());
         orders.setStatus(Orders.PENDING_PAYMENT);
         orders.setNumber(String.valueOf(System.currentTimeMillis()));

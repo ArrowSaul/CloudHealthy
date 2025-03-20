@@ -7,5 +7,5 @@ import java.math.BigDecimal;
 @Data
 public class OrdersSubmitDTO {
     private Long patientId;
-    private BigDecimal amount;
+    private Integer menuId;
 }
