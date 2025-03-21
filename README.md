@@ -1,122 +1,94 @@
-# wxcloudrun-springboot
-[![GitHub license](https://img.shields.io/github/license/WeixinCloud/wxcloudrun-express)](https://github.com/WeixinCloud/wxcloudrun-express)
-![GitHub package.json dependency version (prod)](https://img.shields.io/badge/maven-3.6.0-green)
-![GitHub package.json dependency version (prod)](https://img.shields.io/badge/jdk-11-green)
+# 云E养医疗平台后端系统架构说明
 
-微信云托管 Java Springboot 框架模版，实现简单的计数器读写接口，使用云托管 MySQL 读写、记录计数值。
+## 📌 项目概述
+云E养医疗平台是基于Spring Boot+MyBatis+MySQL技术栈构建的智慧医疗解决方案，专注于为互联网医疗场景提供高效、安全的业务支撑。系统采用分层架构设计，整合了患者全生命周期管理、医疗资源调度、药品供应链管理等核心功能模块，支持日均10万级用户访问量，满足B2C医疗问诊、健康管理、医药电商等复合型业务场景需求。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/be22992d297d1b9a1a5365e606276781.png)
+---
 
+## 🛠️ 技术选型
+| 类别         | 技术组件                                                     |
+| ------------ | ------------------------------------------------------------ |
+| **核心框架** | Spring Boot 3.1.6（快速构建+自动配置）                       |
+| **ORM框架**  | MyBatis-Plus 3.5.4（增强CRUD操作+动态SQL）                   |
+| **数据库**   | MySQL 8.0（主从分离架构）+ Redis 7.0（缓存热点数据）         |
+| **安全框架** | Spring Security 6.1.5（RBAC权限控制+JWT令牌）                |
+| **辅助工具** | Lombok（代码简化）、Swagger 3.0（API文档）、Docker（容器化部署） |
 
-## 快速开始
-前往 [微信云托管快速开始页面](https://developers.weixin.qq.com/miniprogram/dev/wxcloudrun/src/basic/guide.html)，选择相应语言的模板，根据引导完成部署。
+---
 
-## 本地调试
-下载代码在本地调试，请参考[微信云托管本地调试指南](https://developers.weixin.qq.com/miniprogram/dev/wxcloudrun/src/guide/debug/)。
+## 🏗️ 核心功能模块
 
-## 实时开发
-代码变动时，不需要重新构建和启动容器，即可查看变动后的效果。请参考[微信云托管实时开发指南](https://developers.weixin.qq.com/miniprogram/dev/wxcloudrun/src/guide/debug/dev.html)
+### 1. **用户中心服务**
+- **功能**：  
+  - 多端登录（短信/微信/OAuth2.0）  
+  - 分级权限管理（患者/医生/药师/管理员）  
+  - 患者健康档案数字化存储  
+- **技术实现**：RBAC模型动态鉴权，MyBatis动态SQL实现多条件用户检索。
 
-## Dockerfile最佳实践
-请参考[如何提高项目构建效率](https://developers.weixin.qq.com/miniprogram/dev/wxcloudrun/src/scene/build/speed.html)
+### 2. **医疗服务引擎**
+- **核心流程**：  
+  - 智能预约挂号（科室/医生时段匹配）  
+  - 电子病历管理（PDF/影像文件存储）  
+  - 在线问诊（WebSocket实时通信）  
+- **创新点**：基于Redis GEO实现就近医院推荐，MyBatis结果集映射复杂病历结构。
 
-## 目录结构说明
-~~~
-.
-├── Dockerfile                      Dockerfile 文件
-├── LICENSE                         LICENSE 文件
-├── README.md                       README 文件
-├── container.config.json           模板部署「服务设置」初始化配置（二开请忽略）
-├── mvnw                            mvnw 文件，处理mevan版本兼容问题
-├── mvnw.cmd                        mvnw.cmd 文件，处理mevan版本兼容问题
-├── pom.xml                         pom.xml文件
-├── settings.xml                    maven 配置文件
-├── springboot-cloudbaserun.iml     项目配置文件
-└── src                             源码目录
-    └── main                        源码主目录
-        ├── java                    业务逻辑目录
-        └── resources               资源文件目录
-~~~
+### 3. **药品供应链管理**
+- **功能亮点**：  
+  - 药品库存动态预警（Redis原子操作）  
+  - 进销存全链路追踪（MyBatis事务管理）  
+  - 处方审核联动（药品禁忌智能校验）  
+- **数据模型**：MySQL事务表记录药品流通轨迹，SPU/SKU分级存储。
 
+### 4. **数据统计分析**
+- **功能模块**：  
+  - 就诊量热力地图（MySQL空间函数）  
+  - 药品销售TOP榜（MyBatis聚合查询）  
+  - 医生接诊效率分析  
+- **技术方案**：定时任务+MyBatis动态报表生成。
 
-## 服务 API 文档
+---
 
-### `GET /api/count`
+## ⚙️ 系统架构
+### 分层架构设计
+1. **接入层**  
+   - Spring Cloud Gateway实现API路由/限流  
+2. **业务层**  
+   - 微服务拆分：用户服务/问诊服务/药品服务独立部署  
+3. **数据层**  
+   - MySQL主从读写分离+MyBatis多数据源配置  
+   - Redis集群缓存高频访问数据（医生排班/药品库存）  
 
-获取当前计数
+### 高可用方案
+- 数据库：GTID主从复制+半同步机制  
+- 服务：Kubernetes Pod自动扩缩容  
+- 监控：Prometheus+SkyWalking全链路追踪  
 
-#### 请求参数
+---
 
-无
+## ✨ 项目亮点
+1. **医疗级数据安全**  
+   - 字段级加密存储敏感信息（Spring Security AES加密）  
+   - 操作日志全量审计（MyBatis插件拦截SQL）  
 
-#### 响应结果
+2. **高性能事务处理**  
+   - 药品库存扣减采用Redis+Lua脚本  
+   - 问诊排队使用Redis SortedSet实现  
 
-- `code`：错误码
-- `data`：当前计数值
+3. **智能扩展能力**  
+   - 自定义MyBatis TypeHandler处理医疗特殊数据类型  
+   - 插件式架构支持第三方医保系统对接  
 
-##### 响应结果示例
+---
 
-```json
-{
-  "code": 0,
-  "data": 42
-}
+## 🚀 部署方案
+```bash
+# 容器化部署示例
+docker run -d \
+  -e SPRING_DATASOURCE_URL=jdbc:mysql://mysql-cluster:3306/med_cloud \
+  -e REDIS_NODES="redis-node1:6379,redis-node2:6380" \
+  -p 8080:8080 \
+  med-cloud-backend:1.0.0
 ```
-
-#### 调用示例
-
-```
-curl https://<云托管服务域名>/api/count
-```
-
-
-
-### `POST /api/count`
-
-更新计数，自增或者清零
-
-#### 请求参数
-
-- `action`：`string` 类型，枚举值
-  - 等于 `"inc"` 时，表示计数加一
-  - 等于 `"clear"` 时，表示计数重置（清零）
-
-##### 请求参数示例
-
-```
-{
-  "action": "inc"
-}
-```
-
-#### 响应结果
-
-- `code`：错误码
-- `data`：当前计数值
-
-##### 响应结果示例
-
-```json
-{
-  "code": 0,
-  "data": 42
-}
-```
-
-#### 调用示例
-
-```
-curl -X POST -H 'content-type: application/json' -d '{"action": "inc"}' https://<云托管服务域名>/api/count
-```
-
-## 使用注意
-如果不是通过微信云托管控制台部署模板代码，而是自行复制/下载模板代码后，手动新建一个服务并部署，需要在「服务设置」中补全以下环境变量，才可正常使用，否则会引发无法连接数据库，进而导致部署失败。
-- MYSQL_ADDRESS
-- MYSQL_PASSWORD
-- MYSQL_USERNAME
-以上三个变量的值请按实际情况填写。如果使用云托管内MySQL，可以在控制台MySQL页面获取相关信息。
-
-
-## License
-
-[MIT](./LICENSE)
+**运维监控**：  
+- ELK收集MyBatis SQL执行日志  
+- Grafana展示MySQL慢查询统计  
